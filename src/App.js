@@ -7,6 +7,7 @@ import Services from "./components/pages/Services";
 import Products from "./components/pages/Products";
 import SignUp from "./components/pages/SignUp";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </Switch>
       </Router>
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
