@@ -23,6 +23,7 @@ function HeroSection() {
           PLACE YOUR ORDER
         </Button>
       </div>
+      <p>WE DELIVERY!</p>
     </div>
   );
 }
