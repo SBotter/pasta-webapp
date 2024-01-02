@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Services from "./components/pages/Services";
 import Products from "./components/pages/Products";
 import SignUp from "./components/pages/SignUp";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/sign-up" component={SignUp} />
         </Switch>
       </Router>
+      <Analytics />
     </>
   );
 }
