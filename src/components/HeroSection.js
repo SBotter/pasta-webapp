@@ -7,22 +7,20 @@ function HeroSection() {
   return (
     <div className="hero-container">
       {/*<video src="/videos/video-2.mp4" autoPlay loop muted />*/}
-      <h1> ADVENTURE AWAITS</h1>
-      <p> What are you waiting for?</p>
+      <h1>
+        {" "}
+        <p>WELCOME TO </p>
+        <p>MICHELE'S FRESH PASTA</p>
+      </h1>
+      <p> The Artisanal Delight of Handcrafted Pasta Perfection!</p>
+      <p>where passion meets pasta.</p>
       <div className="hero-btns">
         <Button
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
         >
-          GET STARTED
-        </Button>
-        <Button
-          className="btns"
-          buttonStyle="btn--primary"
-          buttonSize="btn--large"
-        >
-          WATCH TRAILER <i className="far fa-play-circle" />
+          PLACE YOUR ORDER
         </Button>
       </div>
     </div>

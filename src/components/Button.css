@@ -1,5 +1,6 @@
 :root {
     --primary: #fff;
+    --nav:#55432f;
   }
   
   .btn {
@@ -20,7 +21,15 @@
     background-color: transparent;
     color: #fff;
     padding: 8px 20px;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--nav);
+    transition: all 0.3s ease-out;
+  }
+  
+  .btn--nav {
+    background-color: transparent;
+    color: #9a7851;
+    padding: 8px 20px;
+    border: 1px solid var(--nav);
     transition: all 0.3s ease-out;
   }
   
@@ -38,6 +47,6 @@
   .btn--medium:hover {
     transition: all 0.3s ease-out;
     background: #fff;
-    color: #242424;
+    color: #231F20;
     transition: 250ms;
   }
