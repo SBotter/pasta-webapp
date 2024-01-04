@@ -25,7 +25,8 @@ function PriceDisplay(props) {
               <Stat key={index}>
                 <StatLabel key={index}>{pack.size}</StatLabel>
                 <StatNumber key={index}>
-                  <i class="fa-solid fa-circle-dollar-to-slot" /> {pack.price}
+                  <i className="fa-solid fa-circle-dollar-to-slot" />{" "}
+                  {pack.price}
                 </StatNumber>
                 <StatHelpText key={index}>{pack.description}</StatHelpText>
               </Stat>

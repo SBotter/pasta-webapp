@@ -11,6 +11,7 @@ export default function ravioli() {
         <div className="cards__wrapper">
           <ul className="cards__items">
             <CardProduct
+              key="rav3"
               src="images/ravioli_3.jpg"
               text="Special ravioli stuffed with brie cheese and white sauce."
               title="Brie Ravioli"
@@ -37,6 +38,7 @@ export default function ravioli() {
             />
 
             <CardProduct
+              key="rav2"
               src="images/ravioli_2.jpg"
               text="Special ravioli stuffed with butternut squash."
               title="Butternut Squash Ravioli"
@@ -68,6 +70,7 @@ export default function ravioli() {
               ]}
             />
             <CardProduct
+              key="rav5"
               src="images/ravioli_5.jpg"
               text="Special ravioli stuffed with brazilian sausage and leek."
               title="Sausage Ravioli"
@@ -101,6 +104,7 @@ export default function ravioli() {
           </ul>
           <ul className="cards__items">
             <CardProduct
+              key="rav4"
               src="images/ravioli_4.jpg"
               text="Special ravioli stuffed with brie cheese and white sauce."
               title="Brie Ravioli"
@@ -127,6 +131,7 @@ export default function ravioli() {
             />
 
             <CardProduct
+              key="rav6"
               src="images/ravioli_2.jpg"
               text="Special ravioli stuffed with butternut squash."
               title="Butternut Squash Ravioli"
@@ -158,6 +163,7 @@ export default function ravioli() {
               ]}
             />
             <CardProduct
+              key="rav7"
               src="images/ravioli_5.jpg"
               text="Special ravioli stuffed with brazilian sausage and leek."
               title="Sausage Ravioli"

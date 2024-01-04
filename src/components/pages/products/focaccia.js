@@ -3,7 +3,7 @@ import "../../../App.css";
 import "../../CardProduct.css";
 import CardProduct from "../../CardProduct";
 
-function focaccia() {
+export default function focaccia() {
   return (
     <div className="cards">
       <h1> Artisanal Handcrafted Pasta, Culinary Excellence.</h1>
@@ -11,6 +11,7 @@ function focaccia() {
         <div className="cards__wrapper">
           <ul className="cards__items">
             <CardProduct
+              key="foca1"
               src="images/focaccia_1.jpg"
               text="Special ravioli stuffed with brie cheese and white sauce."
               title="Rosemery Focaccia"
@@ -43,6 +44,7 @@ function focaccia() {
             />
 
             <CardProduct
+              key="foca3"
               src="images/focaccia_3.jpg"
               text="Special ravioli stuffed with butternut squash."
               title="Confit Tomato Foccacia"
@@ -82,5 +84,3 @@ function focaccia() {
     </div>
   );
 }
-
-export default focaccia;

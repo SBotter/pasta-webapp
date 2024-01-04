@@ -19,7 +19,7 @@ function Cards() {
               src="images/PastaSeca_3.jpg"
               text="Discover the rustic allure of pasta seca. Air-dried to perfection, a time-honored tradition that captures the essence of authentic Italian cuisine."
               label="Pasta Seca"
-              path="/products/pastaseca"
+              path="/pastaseca"
             />
           </ul>
           <ul className="cards__items">

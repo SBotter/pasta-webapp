@@ -19,6 +19,7 @@ function CardProduct(props) {
           <div className="cards__item__container_details">
             <Box p={4} borderRadius={20} style={{ maxWidth: "100%" }}>
               <NavigationTab
+                key={props.key}
                 ingredients={props.ingredients}
                 instructions={props.instructions}
                 suggestions={props.suggestions}
