@@ -13,7 +13,7 @@ function Cards() {
               src="images/ravioli_3.jpg"
               text="Savor the exquisite joy of stuffed ravioli. Handcrafted perfection, bursting with flavor. Elevate your dining experience with every bite."
               label="Ravioli"
-              path="/products/ravioli"
+              path="/ravioli"
             />
             <CardItem
               src="images/PastaSeca_3.jpg"

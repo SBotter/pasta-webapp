@@ -31,6 +31,16 @@
     margin: 0 1rem;
     border-radius: 10px;
   }
+
+  .card__item__tab{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 1120px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+  }
   
   .cards__item__link {
     display: flex;
@@ -90,15 +100,33 @@
   }
   
   .cards__item__info {
+    padding: 10px 20px 20px;
+  }
+  
+  .cards__item__title {
     padding: 20px 30px 30px;
   }
-
-   
+  
   .cards__item__text {
     color: #252e48;
     font-size: 18px;
     line-height: 24px;
   }
+  
+  .cards__item__text_title {
+    color: #252e48;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .cards__item__container_details {
+    color: #252e48;
+    font-size: 14px;
+    line-height: 24px;
+    width: 100% !important;
+  }
+
+
   
   @media only screen and (min-width: 1200px) {
     .content__blog__container {
