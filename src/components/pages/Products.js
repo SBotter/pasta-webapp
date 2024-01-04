@@ -20,7 +20,7 @@ export default function Products() {
               src="images/PastaSeca_3.jpg"
               text="Discover the rustic allure of pasta seca. Air-dried to perfection, a time-honored tradition that captures the essence of authentic Italian cuisine."
               label="Pasta Seca"
-              path="/products/pastaseca"
+              path="/pastaseca"
             />
           </ul>
           <ul className="cards__items">
@@ -34,13 +34,13 @@ export default function Products() {
               src="images/tomatoConfit_1.jpg"
               text="Savor the richness of our meticulously crafted tomato sauce. Slow-simmered to perfection, it embodies homemade authenticity, enhancing every dish with exceptional flavor."
               label="Tomato Sauce"
-              path="/products/sauce"
+              path="/sauce"
             />
             <CardItem
               src="images/lasagna_1.jpg"
               text="Embrace layers of culinary perfection with our lasagna. Meticulously crafted, it's a symphony of flavors creating an unforgettable dining experience."
               label="Lasagna"
-              path="/products/lasagna"
+              path="/lasagna"
             />
           </ul>
         </div>
