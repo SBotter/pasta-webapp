@@ -9,6 +9,7 @@ import SignUp from "./components/pages/SignUp";
 import { Analytics } from "@vercel/analytics/react";
 import Ravioli from "./components/pages/products/ravioli";
 import { ChakraProvider } from "@chakra-ui/react";
+import focaccia from "./components/pages/products/focaccia";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/services" component={Services} />
             <Route path="/products" component={Products} />
             <Route path="/ravioli" component={Ravioli} />
+            <Route path="/focaccia" component={focaccia} />
             <Route path="/sign-up" component={SignUp} />
           </Switch>
         </Router>

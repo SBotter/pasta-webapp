@@ -27,7 +27,7 @@ function Cards() {
               src="images/Focaccia_2.jpg"
               text="Indulge in the aromatic delight of rosemary focaccia. Artisanal and oven-baked, each bite is a fragrant journey of satisfaction and taste."
               label="Focaccia"
-              path="/products/focaccia"
+              path="/focaccia"
             />
             <CardItem
               src="images/tomatoConfit_1.jpg"
