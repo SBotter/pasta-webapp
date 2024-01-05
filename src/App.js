@@ -11,6 +11,7 @@ import Ravioli from "./components/pages/products/ravioli";
 import { ChakraProvider } from "@chakra-ui/react";
 import focaccia from "./components/pages/products/focaccia";
 import pastaseca from "./components/pages/products/pastaseca";
+import WeDelivery from "./components/pages/WeDelivery";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/ravioli" component={Ravioli} />
             <Route path="/focaccia" component={focaccia} />
             <Route path="/pastaseca" component={pastaseca} />
+            <Route path="/delivery" component={WeDelivery} />
             <Route path="/sign-up" component={SignUp} />
           </Switch>
         </Router>

@@ -69,7 +69,11 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--nav">ORDER</Button>}
+          {button && (
+            <Button buttonStyle="btn--nav" linkTo="/">
+              ORDER
+            </Button>
+          )}
         </div>
       </nav>
     </>
