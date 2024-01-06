@@ -20,7 +20,7 @@ import {
 } from "@react-google-maps/api";
 import { useRef, useState } from "react";
 
-const center = { lat: 48.8584, lng: 2.2945 };
+const center = { lat: 49.3287158, lng: -123.0856023 };
 
 function Map() {
   const { isLoaded } = useJsApiLoader({
@@ -35,6 +35,7 @@ function Map() {
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef();
+
   /** @type React.MutableRefObject<HTMLInputElement> */
   const destiantionRef = useRef();
 
@@ -43,13 +44,20 @@ function Map() {
   }
 
   async function calculateRoute() {
-    if (originRef.current.value === "" || destiantionRef.current.value === "") {
+    console.log(process.env.REACT_APP_ORIGIN_ADDRESS);
+    //console.log(originRef.current.value);
+
+    //originRef = process.env.REACT_APP_ORIGIN_ADDRESS;
+    //if (originRef.current.value === "" || destiantionRef.current.value === "") {
+    if (destiantionRef.current.value === "") {
       return;
     }
+
     // eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
     const results = await directionsService.route({
-      origin: originRef.current.value,
+      //origin: originRef.current.value,
+      origin: process.env.REACT_APP_ORIGIN_ADDRESS,
       destination: destiantionRef.current.value,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
@@ -105,11 +113,11 @@ function Map() {
         zIndex="1"
       >
         <HStack spacing={2} justifyContent="space-between">
-          <Box flexGrow={1}>
+          {/*<Box flexGrow={1}>
             <Autocomplete>
               <Input type="text" placeholder="Origin" ref={originRef} />
             </Autocomplete>
-          </Box>
+          </Box>*/}
           <Box flexGrow={1}>
             <Autocomplete>
               <Input
