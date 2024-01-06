@@ -19,6 +19,7 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 import { useRef, useState } from "react";
+import DeliveryCalculator from "./DeliveryCalculator";
 
 const center = { lat: 49.3287158, lng: -123.0856023 };
 
@@ -32,9 +33,10 @@ function Map() {
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
+  const [distanceValue, setDistanceValue] = useState("");
 
   /** @type React.MutableRefObject<HTMLInputElement> */
-  const originRef = useRef();
+  //const originRef = useRef();
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const destiantionRef = useRef();
@@ -44,9 +46,6 @@ function Map() {
   }
 
   async function calculateRoute() {
-    console.log(process.env.REACT_APP_ORIGIN_ADDRESS);
-    //console.log(originRef.current.value);
-
     //originRef = process.env.REACT_APP_ORIGIN_ADDRESS;
     //if (originRef.current.value === "" || destiantionRef.current.value === "") {
     if (destiantionRef.current.value === "") {
@@ -64,14 +63,16 @@ function Map() {
     });
     setDirectionsResponse(results);
     setDistance(results.routes[0].legs[0].distance.text);
+    setDistanceValue(results.routes[0].legs[0].distance.value);
     setDuration(results.routes[0].legs[0].duration.text);
   }
 
   function clearRoute() {
     setDirectionsResponse(null);
     setDistance("");
+    setDistanceValue("");
     setDuration("");
-    originRef.current.value = "";
+    //originRef.current.value = "";
     destiantionRef.current.value = "";
   }
 
@@ -122,15 +123,16 @@ function Map() {
             <Autocomplete>
               <Input
                 type="text"
-                placeholder="Destination"
+                placeholder="Delivery Address"
                 ref={destiantionRef}
+                onFocus={clearRoute}
               />
             </Autocomplete>
           </Box>
 
           <ButtonGroup>
             <Button colorScheme="pink" type="submit" onClick={calculateRoute}>
-              Calculate Route
+              Calculate Delivery
             </Button>
             <IconButton
               aria-label="center back"
@@ -152,6 +154,9 @@ function Map() {
             }}
           />
         </HStack>
+        <div>
+          <DeliveryCalculator distance={distanceValue} />
+        </div>
       </Box>
     </Flex>
   );
