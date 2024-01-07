@@ -6,10 +6,13 @@ import {
   CardBody,
   CardFooter,
   Divider,
+  Text,
+  HStack,
+  Box,
 } from "@chakra-ui/react";
 import "./Cards.css";
 
-function DeliveryCalculator(distance) {
+function DeliveryCalculator(distance, isWrapEnabled) {
   const gasPrice = process.env.REACT_APP_DELIVERY_GAS_PRICE;
   const deliveryRadious = process.env.REACT_APP_DELIVERY_RADIOUS;
   const quilometerPerMeter = 8;
@@ -17,9 +20,7 @@ function DeliveryCalculator(distance) {
   const distanceFree = process.env.REACT_APP_DELIVERY_DISTANCE_FREE;
   let orderDeliveryFree = "";
 
-  let deliveryPrice = Math.round(
-    (distance.distance - distanceFree) * costPerMeter * 5
-  );
+  let deliveryPrice = Math.round(distance.distance * costPerMeter * 5);
 
   if (distance && distance.distance <= distanceFree) {
     deliveryPrice = "Free";
@@ -29,21 +30,18 @@ function DeliveryCalculator(distance) {
     distance.distance < 10000
   ) {
     orderDeliveryFree = "70";
-    console.log(orderDeliveryFree, "70");
   } else if (
     distance &&
     distance.distance > 10000 &&
     distance.distance < 15000
   ) {
     orderDeliveryFree = "100";
-    console.log(orderDeliveryFree, "100");
   } else if (
     distance &&
     distance.distance > 15000 &&
     distance.distance < process.env.REACT_APP_DELIVERY_RADIOUS
   ) {
     orderDeliveryFree = "140";
-    console.log(orderDeliveryFree, "140");
   }
 
   if (distance && distance.distance > deliveryRadious)
@@ -61,32 +59,30 @@ function DeliveryCalculator(distance) {
   if (distance && distance.distance === "") return null;
 
   return (
-    <div className="cards">
-      <div className="cards__container">
-        <div className="cards__wrapper">
-          <ul className="cards__items">
-            <Card align="center">
-              <CardHeader>
-                <Heading size="md">Delivery Costs</Heading>
-              </CardHeader>
-              <Divider />
-              <CardBody>
-                <Heading as="h2" size="xl">
-                  {deliveryPrice !== "Free" && "$"} {deliveryPrice}
-                </Heading>
-              </CardBody>
-              <CardFooter>
-                <Heading size="md">
-                  {deliveryPrice !== "Free" &&
-                    "Enjoy Free Delivery on Orders Over $"}
-                  {orderDeliveryFree}
-                </Heading>
-              </CardFooter>
-            </Card>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <>
+      <Box width={"100%"}>
+        <HStack
+          spacing={4}
+          align="center"
+          maxW="md" // Adjust the maximum width based on your layout
+        >
+          <Box width="100%">
+            <Text fontSize={{ base: "14px", md: "18px", lg: "20px" }}>
+              Delivery Costs
+            </Text>
+          </Box>
+          <Box width="100%">
+            <Text fontSize={{ base: "14px", md: "18px", lg: "20px" }}>
+              {deliveryPrice !== "Free" && "$"} {deliveryPrice}
+            </Text>
+          </Box>
+        </HStack>
+        <Text fontSize={{ base: "14px", md: "20px", lg: "22px" }}>
+          {deliveryPrice !== "Free" && "Enjoy Free Delivery on Orders Over $"}
+          {orderDeliveryFree}
+        </Text>
+      </Box>
+    </>
   );
 }
 

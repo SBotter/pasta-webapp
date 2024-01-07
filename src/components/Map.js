@@ -1,4 +1,8 @@
 import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
   Box,
   Button,
   ButtonGroup,
@@ -8,7 +12,16 @@ import {
   Input,
   SkeletonText,
   Text,
+  SimpleGrid,
+  useBreakpointValue,
+  Divider,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
 } from "@chakra-ui/react";
+
 import { FaLocationArrow, FaTimes } from "react-icons/fa";
 
 import {
@@ -24,6 +37,7 @@ import DeliveryCalculator from "./DeliveryCalculator";
 const center = { lat: 49.3287158, lng: -123.0856023 };
 
 function Map() {
+  const isWrapEnabled = useBreakpointValue({ base: true, md: false });
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ["places"],
@@ -104,59 +118,70 @@ function Map() {
           )}
         </GoogleMap>
       </Box>
-      <Box
-        p={4}
-        borderRadius="lg"
-        m={4}
-        bgColor="white"
-        shadow="base"
-        minW="container.md"
-        zIndex="1"
-      >
-        <HStack spacing={2} justifyContent="space-between">
-          {/*<Box flexGrow={1}>
-            <Autocomplete>
-              <Input type="text" placeholder="Origin" ref={originRef} />
-            </Autocomplete>
-          </Box>*/}
-          <Box flexGrow={1}>
-            <Autocomplete>
-              <Input
-                type="text"
-                placeholder="Delivery Address"
-                ref={destiantionRef}
-                onFocus={clearRoute}
-              />
-            </Autocomplete>
-          </Box>
-
-          <ButtonGroup>
-            <Button colorScheme="pink" type="submit" onClick={calculateRoute}>
-              Calculate Delivery
-            </Button>
-            <IconButton
-              aria-label="center back"
-              icon={<FaTimes />}
-              onClick={clearRoute}
-            />
-          </ButtonGroup>
-        </HStack>
-        <HStack spacing={4} mt={4} justifyContent="space-between">
-          <Text>Distance: {distance} </Text>
-          <Text>Duration: {duration} </Text>
-          <IconButton
-            aria-label="center back"
-            icon={<FaLocationArrow />}
-            isRound
-            onClick={() => {
-              map.panTo(center);
-              map.setZoom(15);
-            }}
-          />
-        </HStack>
-        <div>
-          <DeliveryCalculator distance={distanceValue} />
-        </div>
+      <Box align="center" padding={2} width="100%">
+        <Card align="center" width={{ base: "90%", md: "70%", xl: "50%" }}>
+          <Accordion defaultIndex={[0]} allowToggle>
+            <AccordionItem width={"100%"}>
+              <AccordionButton color="red" justifyContent={"right"}>
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel pb={4}>
+                <CardHeader width="100%">
+                  <HStack
+                    spacing={4}
+                    align="center"
+                    wrap={isWrapEnabled ? "wrap" : "nowrap"}
+                    maxW="md" // Adjust the maximum width based on your layout
+                  >
+                    <Box width="100%">
+                      <Autocomplete>
+                        <Input
+                          type="text"
+                          placeholder="Delivery Address"
+                          ref={destiantionRef}
+                          onFocus={clearRoute}
+                        />
+                      </Autocomplete>
+                    </Box>
+                    <Box width="100%">
+                      <Button
+                        colorScheme="pink"
+                        type="submit"
+                        onClick={calculateRoute}
+                      >
+                        Calculate Delivery
+                      </Button>
+                    </Box>
+                  </HStack>
+                </CardHeader>
+                <Divider width="90%" color="#B5B5B5" />
+                <CardBody width="100%">
+                  <HStack width={"100%"}>
+                    <Box width="100%">
+                      <Text fontSize={{ base: "12px", md: "18px", lg: "20px" }}>
+                        Distance: {distance}
+                      </Text>
+                    </Box>
+                    <Box width="100%">
+                      <Text fontSize={{ base: "12px", md: "18px", lg: "20px" }}>
+                        Duration: {duration}
+                      </Text>
+                    </Box>
+                  </HStack>
+                </CardBody>
+                <Divider width="90%" color="#B5B5B5" />
+                <CardFooter width="100%">
+                  <Box width="100%">
+                    <DeliveryCalculator
+                      distance={distanceValue}
+                      isWrapEnabled={isWrapEnabled}
+                    />
+                  </Box>
+                </CardFooter>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
+        </Card>
       </Box>
     </Flex>
   );
