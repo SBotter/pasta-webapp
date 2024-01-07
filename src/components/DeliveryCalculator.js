@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  Heading,
-  CardBody,
-  CardFooter,
-  Divider,
-  Text,
-  HStack,
-  Box,
-} from "@chakra-ui/react";
+import { Text, HStack, Box } from "@chakra-ui/react";
 import "./Cards.css";
 
 function DeliveryCalculator(distance, isWrapEnabled) {

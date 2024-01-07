@@ -5,14 +5,11 @@ import {
   CardFooter,
   Box,
   Button,
-  ButtonGroup,
   Flex,
   HStack,
-  IconButton,
   Input,
   SkeletonText,
   Text,
-  SimpleGrid,
   useBreakpointValue,
   Divider,
   Accordion,
@@ -21,8 +18,6 @@ import {
   AccordionIcon,
   AccordionPanel,
 } from "@chakra-ui/react";
-
-import { FaLocationArrow, FaTimes } from "react-icons/fa";
 
 import {
   useJsApiLoader,
@@ -48,6 +43,7 @@ function Map() {
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
   const [distanceValue, setDistanceValue] = useState("");
+  const [showFreight, setShowFreight] = useState(false);
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   //const originRef = useRef();
@@ -79,6 +75,7 @@ function Map() {
     setDistance(results.routes[0].legs[0].distance.text);
     setDistanceValue(results.routes[0].legs[0].distance.value);
     setDuration(results.routes[0].legs[0].duration.text);
+    setShowFreight(true);
   }
 
   function clearRoute() {
@@ -86,6 +83,7 @@ function Map() {
     setDistance("");
     setDistanceValue("");
     setDuration("");
+    setShowFreight(false);
     //originRef.current.value = "";
     destiantionRef.current.value = "";
   }
@@ -145,7 +143,7 @@ function Map() {
                     </Box>
                     <Box width="100%">
                       <Button
-                        colorScheme="pink"
+                        colorScheme="blue"
                         type="submit"
                         onClick={calculateRoute}
                       >
@@ -154,8 +152,12 @@ function Map() {
                     </Box>
                   </HStack>
                 </CardHeader>
-                <Divider width="90%" color="#B5B5B5" />
-                <CardBody width="100%">
+                <Divider
+                  width="90%"
+                  color="#B5B5B5"
+                  display={showFreight ? "block" : "none"}
+                />
+                <CardBody width="100%" display={showFreight ? "block" : "none"}>
                   <HStack width={"100%"}>
                     <Box width="100%">
                       <Text fontSize={{ base: "12px", md: "18px", lg: "20px" }}>
@@ -169,8 +171,15 @@ function Map() {
                     </Box>
                   </HStack>
                 </CardBody>
-                <Divider width="90%" color="#B5B5B5" />
-                <CardFooter width="100%">
+                <Divider
+                  width="90%"
+                  color="#B5B5B5"
+                  display={showFreight ? "block" : "none"}
+                />
+                <CardFooter
+                  width="100%"
+                  display={showFreight ? "block" : "none"}
+                >
                   <Box width="100%">
                     <DeliveryCalculator
                       distance={distanceValue}
