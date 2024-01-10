@@ -181,10 +181,7 @@ function Map() {
                   display={showFreight ? "block" : "none"}
                 >
                   <Box width="100%">
-                    <DeliveryCalculator
-                      distance={distanceValue}
-                      isWrapEnabled={isWrapEnabled}
-                    />
+                    <DeliveryCalculator distance={distanceValue} />
                   </Box>
                 </CardFooter>
               </AccordionPanel>

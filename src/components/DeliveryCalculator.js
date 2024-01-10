@@ -2,7 +2,7 @@ import React from "react";
 import { Text, HStack, Box } from "@chakra-ui/react";
 import "./Cards.css";
 
-function DeliveryCalculator(distance, isWrapEnabled) {
+function DeliveryCalculator(distance) {
   const gasPrice = process.env.REACT_APP_DELIVERY_GAS_PRICE;
   const deliveryRadious = process.env.REACT_APP_DELIVERY_RADIOUS;
   const quilometerPerMeter = 8;
